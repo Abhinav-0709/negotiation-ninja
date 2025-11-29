@@ -67,7 +67,7 @@ React UI
 </details>
 🧑‍💻 Run Locally
 1️⃣ Clone the repo
-git clone https://github.com/yourusername/office-simulator-3000
+git clone (https://github.com/Abhinav-0709/negotiation-ninja)
 cd office-simulator-3000
 
 2️⃣ Install dependencies
