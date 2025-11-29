@@ -1,108 +1,122 @@
-Office Simulator 3000 🪐
+🪐 Office Simulator 3000
+A Real-Time Voice AI Roleplay Game powered by ElevenLabs & Google Gemini
+<p align="center"> <img src="https://img.shields.io/badge/Voice%20AI-ElevenLabs-orange?style=for-the-badge" /> <img src="https://img.shields.io/badge/AI%20Model-Gemini%201.5%20Flash-blue?style=for-the-badge" /> <img src="https://img.shields.io/badge/Frontend-React-%2361DAFB?style=for-the-badge&logo=react&logoColor=white" /> <img src="https://img.shields.io/badge/Hosting-Firebase-yellow?style=for-the-badge&logo=firebase&logoColor=white" /> </p>
+🎮 What is Office Simulator 3000?
 
-A Real-Time Voice AI Roleplay Game powered by ElevenLabs & Google Gemini.
+Office Simulator 3000 is an immersive real-time voice roleplay game where you talk to AI-powered office characters who respond instantly with human-like voices.
 
-<!-- Header Badges -->
+No text input.
+No delays.
+Just you, your microphone, and a chaotic corporate universe.
 
-<div align="center">
-
-</div>
-
-🛠️ Tech Stack & Tools
-
-We leveraged a modern serverless stack to ensure low latency and high scalability.
-
-<div align="center">
-
-
-</div>
-
+🛠️ Tech Stack
+<p align="center"> <img src="https://skillicons.dev/icons?i=react,firebase,nodejs,vite" /> <img src="https://skillicons.dev/icons?i=googlecloud" /> </p>
+Layer	Tech
+Voice Engine	ElevenLabs Conversational AI SDK (@11labs/react)
+Reasoning Engine	Google Gemini 1.5 Flash
+Deployment	Firebase Hosting + Cloud Functions
+Frontend	React + Vite
+State/Agents	Custom Multi-Agent Orchestrator
 🚀 Project Overview
 
-Office Simulator 3000 is an immersive voice-interactive game where players navigate a chaotic office environment by talking to AI agents. Unlike standard chatbots, this is a real-time voice experience.
+Office Simulator 3000 allows players to speak directly with multiple AI characters, each with:
+✔ unique personalities
+✔ their own goals
+✔ interruptible, low-latency voice
+✔ dynamic persona switching
+✔ hidden agendas 👀
 
-Players can choose to interact with distinct personalities, each with their own goals, voices, and hidden agendas. The goal is to navigate the social dynamics of the office using your actual voice.
+This isn't a chatbot.
+It's a full-duplex, real-time audio game.
 
-🤖 The Agents (Personalities)
+🤖 Meet the Agents
 
-We orchestrated a multi-agent system where the user can dynamically switch interactions.
+We designed a multi-agent ecosystem so players can switch personalities mid-conversation without reloading.
 
-Character
+Character	Role	Goal	Voice Personality
+Mr. Scrooge	The Stingy Boss	Prevent your raise	Aggressive, interrupts constantly
+Sam	Lazy Colleague	Distract you from real work	Casual, gossip-heavy
+Jessica	HR Gatekeeper	Block access to the CEO	Strict but charming
+Intern (You choose name)	Overwhelmed assistant	Needs help (or causes chaos)	Stutters, panics, chaotic energy
 
-Role
+Each agent is backed by its own ElevenLabs Voice + Gemini reasoning profile.
 
-Goal
+🧩 How It Works Under the Hood
+<details> <summary><strong>Click to expand</strong></summary>
+⚡ Real-time Voice Flow
 
-Voice Personality
+User speaks into the microphone
 
-Mr. Scrooge
+ElevenLabs WebSocket stream → transcribes + generates voice response
 
-The Stingy Boss
+Gemini 1.5 Flash provides ultra-low-latency reasoning (<800ms)
 
-Negotiate a raise
+Hot-swappable agent state allows switching characters instantly
 
-Aggressive, Interrupting
+Playback continues with natural interruptions & emotional tone
 
-Sam
+🏗 Architecture
+React UI
+   │
+   ├─ @11labs/react (full-duplex voice)
+   │
+   ├─ Agent Orchestrator (state machine)
+   │
+   └─ Gemini Engine (character behavior + personality scripts)
 
-The Lazy Colleague
-
-Distract you from work
-
-Casual, Gossip-heavy
-
-Jessica
-
-The Gatekeeper
-
-Block access to the CEO
-
-Charming, Strict
-
-Needs help (or causes chaos)
-
-Stuttering, Overwhelmed
-
-📦 How to Run Locally
-
-Clone the repository:
-
-git clone [https://github.com/yourusername/office-simulator-3000.git](https://github.com/yourusername/office-simulator-3000.git)
+</details>
+🧑‍💻 Run Locally
+1️⃣ Clone the repo
+git clone https://github.com/yourusername/office-simulator-3000
 cd office-simulator-3000
 
-
-Install dependencies:
-
+2️⃣ Install dependencies
 npm install
 
+3️⃣ Configure Agent IDs
 
-Configure Agents:
+Open:
 
-Open src/App.jsx.
+/src/App.jsx
 
-Replace the id fields in the AGENTS object with your ElevenLabs Agent IDs.
 
-Run the development server:
+Replace:
 
+id: "<YOUR_ELEVENLABS_AGENT_ID>"
+
+4️⃣ Start the dev server
 npm run dev
 
-
-🏆 Hackathon Challenge Integration
-
+🏆 Hackathon Context
 🗣️ ElevenLabs Challenge
 
-We utilized the Conversational AI SDK (@11labs/react) to build a low-latency, full-duplex voice interface.
+We implemented:
 
-Feature Implemented: Dynamic Agent Switching. The app handles state management to hot-swap between different agent_ids without reloading the page, allowing for a seamless multi-character experience.
+✔ Dynamic Agent Switching
 
-☁️ Google Cloud Challenge
+Hot-swap between characters without refreshing, maintaining audio context.
 
-The intelligence driving these conversations is Google Gemini 1.5 Flash, configured directly within the agent architecture.
+✔ Full-Duplex Voice
 
-Why Gemini? We needed the <800ms latency reasoning capabilities of Gemini 1.5 Flash to ensure the "interruptibility" of the characters felt natural.
+Using @11labs/react to enable natural interruptions & overlap speech.
 
-Infrastructure: The entire application is deployed on Google Firebase, leveraging Google's serverless infrastructure for global availability.
+☁️ Google Cloud + Gemini Challenge
+Why Gemini 1.5 Flash?
 
-<div align="center">
-<p>Built with ❤️ (and a lot of coffee) for the AI Partner Catalyst Hackathon.</p>
-</div>
+Because we needed:
+
+⚡ Under 800ms reasoning
+
+🎭 Strong personality conditioning
+
+🔄 Smooth conversational flow
+
+Infra
+
+Firebase Hosting
+
+Firebase Functions for agent logic
+
+Google Cloud for Gemini runtime
+
+<div align="center"> <h3>Built with ❤️, ☕, and a bit of corporate chaos for the AI Partner Catalyst Hackathon.</h3> </div>
